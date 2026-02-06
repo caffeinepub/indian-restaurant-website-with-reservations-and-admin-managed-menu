@@ -1,0 +1,242 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-multi-page-indian-restaurant-website-with-the-following-pages-and-navigation-home-menu-about-us-gallery-online-reservation-contact-ensure-navigation-works-on-desktop-and-mobile-responsive",
+      "featureTitle": "Create a multi-page Indian restaurant website with the following pages and navigation: Home, Menu, About Us, Gallery, Online Reservation, Contact. Ensure navigation works on desktop and mobile (responsive).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SiteFooter.tsx",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/components/SiteLayout.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/GalleryPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/MenuPage.tsx",
+        "frontend/src/pages/ReservationPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-modern-clean-cohesive-visual-theme-appropriate-for-an-indian-restaurant-warm-inviting-palette-consistent-typography-consistent-spacing-accessible-contrast-do-not-use-a-blue-purple-dominant-palette",
+      "featureTitle": "Apply a modern, clean, cohesive visual theme appropriate for an Indian restaurant (warm, inviting palette; consistent typography; consistent spacing; accessible contrast). Do not use a blue/purple-dominant palette.",
+      "files": [
+        "frontend/src/components/SiteLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-home-page-add-sections-for-1-hero-headline-and-short-description-2-special-dishes-highlighted-items-3-customer-reviews-testimonials-4-opening-hours-and-5-location-summary-with-address-text",
+      "featureTitle": "Home page: add sections for (1) hero headline and short description, (2) special dishes (highlighted items), (3) customer reviews/testimonials, (4) opening hours, and (5) location summary with address text.",
+      "files": [
+        "frontend/src/components/RatingStars.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-menu-page-display-menu-items-grouped-by-category-e-g-starters-main-course-breads-desserts-beverages-each-item-shows-name-description-price-and-optional-vegetarian-non-vegetarian-indicator",
+      "featureTitle": "Menu page: display menu items grouped by category (e.g., Starters, Main Course, Breads, Desserts, Beverages). Each item shows name, description, price, and optional vegetarian/non-vegetarian indicator.",
+      "files": [
+        "frontend/src/pages/MenuPage.tsx",
+        "frontend/src/utils/format.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-about-us-page-include-restaurant-story-description-content-cuisine-focus-and-a-short-section-highlighting-quality-ingredients-hospitality-ensure-content-is-in-english-and-matches-an-indian-restaurant-context-no-placeholder-lorem-ipsum",
+      "featureTitle": "About Us page: include restaurant story/description content, cuisine focus, and a short section highlighting quality/ingredients/hospitality. Ensure content is in English and matches an Indian restaurant context (no placeholder lorem ipsum).",
+      "files": [
+        "frontend/src/pages/AboutPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-gallery-page-display-a-grid-of-restaurant-food-images-with-a-click-to-view-larger-preview-modal-lightbox",
+      "featureTitle": "Gallery page: display a grid of restaurant/food images with a click-to-view larger preview (modal/lightbox).",
+      "files": [
+        "frontend/src/components/GalleryLightbox.tsx",
+        "frontend/src/pages/GalleryPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-online-reservation-page-implement-a-reservation-form-that-collects-at-minimum-full-name-phone-number-date-time-number-of-guests-and-optional-notes-validate-required-fields-client-side-and-submit-to-backend-for-storage",
+      "featureTitle": "Online Reservation page: implement a reservation form that collects at minimum: full name, phone number, date, time, number of guests, and optional notes. Validate required fields client-side and submit to backend for storage.",
+      "files": [
+        "frontend/src/hooks/useReservations.ts",
+        "frontend/src/pages/ReservationPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-contact-page-display-restaurant-details-including-phone-number-8742895627-and-address-15-rani-bazar-jaipur-also-include-opening-hours-and-a-simple-location-section-text-based",
+      "featureTitle": "Contact page: display restaurant details including phone number 8742895627 and address \"-15, Rani bazar Jaipur\". Also include opening hours and a simple location section (text-based).",
+      "files": [
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-admin-section-ui-backend-create-a-simple-admin-area-that-allows-an-authenticated-admin-to-add-edit-and-delete-menu-categories-items-including-name-description-price-category-veg-non-veg-flag-and-optional-image-reference-use-internet-identity-authentication-and-restrict-admin-methods-so-only-authorized-principals-can-modify-menu-data",
+      "featureTitle": "Admin section (UI + backend): create a simple admin area that allows an authenticated admin to add, edit, and delete menu categories/items (including name, description, price, category, veg/non-veg flag, and optional image reference). Use Internet Identity authentication and restrict admin methods so only authorized principals can modify menu data.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AdminGuard.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/components/SiteFooter.tsx",
+        "frontend/src/components/admin/MenuCategoryManager.tsx",
+        "frontend/src/components/admin/MenuItemManager.tsx",
+        "frontend/src/hooks/useAdmin.ts",
+        "frontend/src/pages/AdminPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-seed-initial-content-include-a-reasonable-default-set-of-indian-menu-items-at-least-12-items-across-categories-and-at-least-3-special-dishes-and-3-reviews-so-the-site-is-not-empty-on-first-load",
+      "featureTitle": "Seed initial content: include a reasonable default set of Indian menu items (at least 12 items across categories) and at least 3 special dishes and 3 reviews so the site is not empty on first load.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useSeedInitialData.ts",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/MenuPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-images-as-frontend-assets-and-use-them-across-the-website-home-hero-logo-and-gallery-images-store-them-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend-do-not-route-images-through-the-backend",
+      "featureTitle": "Add generated static images as frontend assets and use them across the website (home hero, logo, and gallery images). Store them under frontend/public/assets/generated and reference them directly from the frontend (do not route images through the backend).",
+      "files": [
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/GalleryPage.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

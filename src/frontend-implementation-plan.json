@@ -1,0 +1,408 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Indian restaurant website (multi-page) with menu, gallery, reservations, and admin menu management",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement multi-page site structure with responsive navigation for Home, Menu, About Us, Gallery, Online Reservation, and Contact.",
+      "acceptanceCriteria": [
+        "Top-level navigation links exist for Home, Menu, About Us, Gallery, Online Reservation, and Contact.",
+        "Each route/page renders distinct page content and matches its menu label.",
+        "Layout is responsive (mobile menu or stacked navigation on small screens)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the top-level app shell, register routes for Home/Menu/About/Gallery/Reservation/Contact, and wire a shared layout (header/footer) around routed pages."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout component that renders header navigation, main content outlet, and footer; includes responsive structure for mobile/desktop."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "create",
+          "description": "Create a responsive header with navigation links for the required pages; use the shadcn-ui component library (e.g., navigation, buttons, sheet/dialog for mobile menu). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "create",
+          "description": "Create a footer with consistent links and an 'Admin' entry point (admin route wiring is implemented under REQ-10)."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page route component and ensure it is reachable via navigation."
+        },
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "create",
+          "description": "Create the Menu page route component and ensure it is reachable via navigation."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create the About Us page route component and ensure it is reachable via navigation."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "create",
+          "description": "Create the Gallery page route component and ensure it is reachable via navigation."
+        },
+        {
+          "path": "frontend/src/pages/ReservationPage.tsx",
+          "operation": "create",
+          "description": "Create the Online Reservation page route component and ensure it is reachable via navigation."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create the Contact page route component and ensure it is reachable via navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a warm, modern, cohesive restaurant theme (typography, spacing, buttons, and accessible contrast; avoid blue/purple-dominant palette).",
+      "acceptanceCriteria": [
+        "All pages share a consistent header/footer and typographic system.",
+        "Primary/secondary button styles and section headings are consistent across pages.",
+        "Color palette is warm/neutral and not dominated by blue/purple."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles and Tailwind CSS variables/tokens for a warm/neutral palette (e.g., saffron/terracotta/charcoal/cream), consistent typography, spacing, and accessible contrast; ensure the palette is not blue/purple-dominant."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions (if needed) to support the warm restaurant palette and consistent typography/spacing tokens used across pages."
+        },
+        {
+          "path": "frontend/src/components/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Apply shared layout styling (container widths, section spacing, consistent heading styles) so all pages feel cohesive."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build Home page sections: hero, special dishes, testimonials, opening hours, and location summary with exact address text.",
+      "acceptanceCriteria": [
+        "Home page includes all five specified sections with clear headings.",
+        "Special dishes section shows at least 3 highlighted dishes with name, short description, and price.",
+        "Customer reviews section shows at least 3 reviews with reviewer name and rating display (e.g., stars).",
+        "Opening hours section displays a weekly schedule (at minimum: days + times).",
+        "Location section displays the address exactly as provided (including punctuation/case)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Implement the five Home sections and wire them to backend-driven content for specials/reviews where available; display address exactly as: -15, Rani bazar Jaipur; use shadcn-ui components (e.g., Card, Badge, Separator) for consistent section UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/RatingStars.tsx",
+          "operation": "create",
+          "description": "Create a small rating display component (e.g., star icons or styled glyphs) for testimonials and any other rating usage."
+        },
+        {
+          "path": "frontend/src/hooks/useHomeContent.ts",
+          "operation": "create",
+          "description": "Create React Query hooks to fetch special dishes and reviews from the backend actor (getSpecialMenuItems, getAllReviews) and expose loading/error states for Home."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Display backend-driven menu grouped by category with item details and veg/non-veg indicator.",
+      "acceptanceCriteria": [
+        "Menu items render from backend data (not hardcoded only in frontend).",
+        "Menu supports at least 4 categories and displays items grouped by category.",
+        "Each item displays name, description, and price.",
+        "UI indicates veg/non-veg when present on an item."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "modify",
+          "description": "Render menu categories and items from backend actor (getAllMenuCategories + getMenuItemsByCategory), grouped by category with consistent item cards; show veg/non-veg indicator and formatted price; use shadcn-ui components (e.g., Tabs/Accordion for categories, Card for items, Badge for veg/non-veg). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useMenu.ts",
+          "operation": "create",
+          "description": "Create React Query hooks to fetch categories and items per category from the backend actor, including caching and loading/error handling for Menu page."
+        },
+        {
+          "path": "frontend/src/utils/format.ts",
+          "operation": "create",
+          "description": "Add formatting helpers for displaying prices from bigint and basic display utilities shared across pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create About Us page with meaningful English content for an Indian restaurant and a highlighted 'Our Story/Promise' block.",
+      "acceptanceCriteria": [
+        "About page has at least 2–3 paragraphs of meaningful English content (no lorem ipsum).",
+        "Page includes at least one highlighted block (e.g., 'Our Story' / 'Our Promise')."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Write meaningful English content reflecting an Indian restaurant’s story, cuisine focus, and hospitality/ingredients; include a highlighted block section styled with shadcn-ui components (e.g., Card/Callout styling). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement Gallery page with responsive image grid and modal/lightbox preview.",
+      "acceptanceCriteria": [
+        "Gallery displays a grid of at least 8 images.",
+        "Clicking an image opens a larger preview and can be closed.",
+        "Gallery is responsive and maintains consistent spacing."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Render a responsive grid of generated gallery images and implement click-to-preview using a modal/dialog; use shadcn-ui Dialog (or equivalent) for lightbox behavior. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/GalleryLightbox.tsx",
+          "operation": "create",
+          "description": "Create a reusable lightbox component that receives image list + selected index and shows a larger preview with close controls; use shadcn-ui Dialog. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build online reservation form with client-side validation and backend submission, with success and retry-friendly error states.",
+      "acceptanceCriteria": [
+        "Form includes: name, phone, date, time, guests, notes (optional).",
+        "Required fields are validated and show inline error messages before submission.",
+        "Successful submission persists a reservation record in the backend and shows a success confirmation state.",
+        "If backend call fails, user sees a non-technical error message and can retry."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ReservationPage.tsx",
+          "operation": "modify",
+          "description": "Implement the reservation form fields, client-side validation with inline errors, submit via backend actor createReservation, and display success/failure states with retry; use shadcn-ui form inputs (Input, Textarea, Button) for consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useReservations.ts",
+          "operation": "create",
+          "description": "Create a React Query mutation hook for createReservation with UI-friendly error handling and success callbacks."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create Contact page with exact phone/address plus opening hours and text-based location section.",
+      "acceptanceCriteria": [
+        "Contact page shows phone number exactly: 8742895627.",
+        "Contact page shows address exactly: -15, Rani bazar Jaipur.",
+        "Contact page includes an opening hours block and a location block (text-based)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Display restaurant contact details with phone exactly 8742895627 and address exactly -15, Rani bazar Jaipur; include opening hours and a text-based location section using the shared theme and layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add an authenticated admin area (Internet Identity) for managing menu categories/items, with admin-only UI controls and graceful unauthorized handling.",
+      "acceptanceCriteria": [
+        "Admin area is accessible from the UI (e.g., in footer or a dedicated route) and is clearly labeled as admin.",
+        "Admin actions include: create, update, delete menu items and manage categories.",
+        "Unauthenticated users cannot access admin editing controls (they may see a prompt to sign in).",
+        "Backend rejects menu-modifying calls from non-admin principals.",
+        "At least one admin principal can be configured (e.g., initial admin set to the first principal who initializes, or a constant allowlist) and is documented in code comments/config."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPage.tsx",
+          "operation": "create",
+          "description": "Create an Admin route that checks authentication state and caller admin status before showing management UI; show a clear 'Admin' label and a friendly access denied/prompt-to-login screen when unauthorized; use the authorization component’s frontend guidance patterns. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AdminGuard.tsx",
+          "operation": "create",
+          "description": "Create a guard wrapper that requires Internet Identity login and verifies isCallerAdmin() before rendering children; handle authorization failures with non-technical messaging; use the authorization component’s error-handling guidance. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Add a login/logout button using Internet Identity via the existing hooks; when logging out, clear cached React Query data per the authorization component guidance. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Implement first-login profile setup (ask for name) using getCallerUserProfile/saveCallerUserProfile to avoid showing principals; follow the authorization component guidance to prevent modal flash. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/admin/MenuCategoryManager.tsx",
+          "operation": "create",
+          "description": "Create admin UI to add/manage categories using backend actor calls; use shadcn-ui components (Dialog, Input, Button, Card/Table-like layout). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/admin/MenuItemManager.tsx",
+          "operation": "create",
+          "description": "Create admin UI to add/edit/delete menu items (name, description, price, category, veg flag, optional image reference, and special flag) using backend actor calls; use shadcn-ui components for consistent forms/modals. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAdmin.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for admin capabilities: getCallerUserRole/isCallerAdmin, and mutations for add/update/delete categories/items; invalidate menu queries after successful mutations."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Admin route into the router and ensure it is reachable from the footer/admin link without creating orphan pages."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Add a clearly labeled 'Admin' link that navigates to the admin route; keep public browsing unaffected."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Ensure first load is populated by triggering/confirming seeded content and displaying specials/reviews immediately without admin input.",
+      "acceptanceCriteria": [
+        "Fresh deploy shows populated Menu with at least 12 items across multiple categories.",
+        "Home page special dishes section is populated without admin input.",
+        "Home page reviews section displays at least 3 reviews on first load."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useSeedInitialData.ts",
+          "operation": "create",
+          "description": "Create a hook that calls the backend actor seedInitialData() once per session (with safe guards to avoid repeated calls) so the site is populated on first load."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Invoke the seed hook near app startup so Menu/Home content is populated for fresh deploys without requiring admin interaction."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Ensure Home uses backend-driven specials/reviews hooks so seeded content appears on first load (with loading fallbacks that still preserve layout)."
+        },
+        {
+          "path": "frontend/src/pages/MenuPage.tsx",
+          "operation": "modify",
+          "description": "Ensure Menu page fetches categories/items from backend so seeded menu items show immediately on first load."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add and wire generated static images (logo, hero, dish highlights, and gallery images) as frontend assets.",
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated.",
+        "Home page uses the hero image and logo in the UI.",
+        "Gallery page uses the generated gallery images and loads them as static assets."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/restaurant-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated restaurant logo asset at the exact path for direct static usage."
+        },
+        {
+          "path": "frontend/public/assets/generated/home-hero-banner.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated home hero banner asset at the exact path for direct static usage."
+        },
+        {
+          "path": "frontend/public/assets/generated/dish-signature-curry.dim_1000x750.png",
+          "operation": "create",
+          "description": "Add generated dish image asset for specials/highlights."
+        },
+        {
+          "path": "frontend/public/assets/generated/dish-biryani.dim_1000x750.png",
+          "operation": "create",
+          "description": "Add generated dish image asset for specials/highlights."
+        },
+        {
+          "path": "frontend/public/assets/generated/dish-tandoori-platter.dim_1000x750.png",
+          "operation": "create",
+          "description": "Add generated dish image asset for specials/highlights."
+        },
+        {
+          "path": "frontend/public/assets/generated/dish-dessert.dim_1000x750.png",
+          "operation": "create",
+          "description": "Add generated dish image asset for specials/highlights."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-01.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-02.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-03.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-04.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-05.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-06.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-07.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-08.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add generated gallery image asset for static gallery grid."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Wire the logo image from frontend/public/assets/generated/restaurant-logo.dim_512x512.png into the header branding area (static asset reference)."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Wire the hero image from frontend/public/assets/generated/home-hero-banner.dim_1600x900.png into the Home hero section and use dish images (frontend/public/assets/generated/dish-signature-curry.dim_1000x750.png, dish-biryani.dim_1000x750.png, dish-tandoori-platter.dim_1000x750.png, dish-dessert.dim_1000x750.png) in the special dishes highlights where appropriate."
+        },
+        {
+          "path": "frontend/src/pages/GalleryPage.tsx",
+          "operation": "modify",
+          "description": "Use the generated gallery images as the data source for the gallery grid: frontend/public/assets/generated/gallery-01.dim_1200x800.png through frontend/public/assets/generated/gallery-08.dim_1200x800.png (static asset references, no backend routing)."
+        }
+      ]
+    }
+  ]
+}

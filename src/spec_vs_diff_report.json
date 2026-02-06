@@ -1,0 +1,96 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T20:59:23.154Z",
+  "summary": "Diff adds a TanStack Router multi-page frontend shell with responsive header/footer, Internet Identity-based auth scaffolding, admin UI for menu management, gallery lightbox component, and a Motoko backend actor with menu/reservation/review types and query/update methods. However, stable persistence in the backend is not evidenced, required generated image assets are not evidenced, and several requested page-level content/validation requirements cannot be confirmed from the provided diff summary due to omitted/truncated files.",
+  "missing_requirements": [
+    {
+      "id": "REQ-9",
+      "requirement": "Backend must use stable storage for menu categories/items and reservations so data persists across canister upgrades (use stable variables).",
+      "reason": "In backend/main.mo the data stores are defined with non-stable `let ... = Map.empty...` bindings; no `stable var` usage is shown for categories/items/reservations/reviews.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "All required generated images must exist under frontend/public/assets/generated and be used across the site (logo, home hero banner, gallery images, dish images).",
+      "reason": "The diff summary shows only a reference to `/assets/generated/restaurant-logo.dim_512x512.png` in the header, but does not include or evidence the presence of the required image files under `frontend/public/assets/generated`, nor references to the hero/gallery/dish images.",
+      "evidence": [
+        "frontend/src/components/SiteHeader.tsx"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Top-level navigation links exist for Home, Menu, About Us, Gallery, Online Reservation, Contact (and responsive behavior).",
+      "reason": "Header nav includes a link labeled \"Reservation\" with path `/reservation`, not the requested label \"Online Reservation\". The request explicitly specifies a top-level navigation link labeled \"Online Reservation\".",
+      "evidence": [
+        "frontend/src/components/SiteHeader.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "User profile system (get/save caller profile) with profile setup modal required before accessing admin.",
+      "reason": "BuildRequest does not ask for user profiles or onboarding/profile setup; only Internet Identity auth and admin restriction for menu management were required.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/components/AdminGuard.tsx",
+        "frontend/src/hooks/useAdmin.ts"
+      ]
+    },
+    {
+      "description": "Secret-token based access control initialization via URL parameter `caffeineAdminToken` and `_initializeAccessControlWithSecret`.",
+      "reason": "BuildRequest requires Internet Identity auth and admin allowlist/initial admin configuration, but does not request a secret token passed via URL to initialize access control.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Footer credit/link to caffeine.ai.",
+      "reason": "Not requested in the BuildRequest; could be considered extraneous branding.",
+      "evidence": [
+        "frontend/src/components/SiteFooter.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.64,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AdminGuard.tsx",
+    "frontend/src/components/GalleryLightbox.tsx",
+    "frontend/src/components/LoginButton.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/components/RatingStars.tsx",
+    "frontend/src/components/SiteFooter.tsx",
+    "frontend/src/components/SiteHeader.tsx",
+    "frontend/src/components/SiteLayout.tsx",
+    "frontend/src/components/admin/MenuCategoryManager.tsx",
+    "frontend/src/components/admin/MenuItemManager.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAdmin.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useReservations.ts",
+    "frontend/src/hooks/useSeedInitialData.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/AdminPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/GalleryPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/MenuPage.tsx",
+    "frontend/src/pages/ReservationPage.tsx",
+    "frontend/src/utils/format.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a full Indian restaurant website with key informational pages, gallery, online reservations, contact details, and a simple admin area for updating menu items.",
+  "architectural_notes": [
+    "Include a simple admin interface for managing/updating menu items."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Restaurant logo mark, minimal modern Indian-inspired iconography (restaurant-logo.dim_512x512.png)\n- Warm modern hero banner featuring an Indian dining/food scene with clean negative space (home-hero-banner.dim_1600x900.png)\n- Food photography-style image of a signature curry dish (dish-signature-curry.dim_1000x750.png)\n- Food photography-style image of biryani (dish-biryani.dim_1000x750.png)\n- Food photography-style image of tandoori platter (dish-tandoori-platter.dim_1000x750.png)\n- Food photography-style image of dessert (dish-dessert.dim_1000x750.png)\n- Restaurant interior photo-style image (gallery-01.dim_1200x800.png)\n- Close-up plated Indian dish photo-style image (gallery-02.dim_1200x800.png)\n- Indian thali photo-style image (gallery-03.dim_1200x800.png)\n- Chef/kitchen action photo-style image (gallery-04.dim_1200x800.png)\n- Dining table ambiance photo-style image (gallery-05.dim_1200x800.png)\n- Spices/ingredients flatlay photo-style image (gallery-06.dim_1200x800.png)\n- Bread/naan oven scene photo-style image (gallery-07.dim_1200x800.png)\n- Beverage/lassi photo-style image (gallery-08.dim_1200x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-page-indian-restaurant-website-with-the-following-pages-and-navigation-home-menu-about-us-gallery-online-reservation-contact-ensure-navigation-works-on-desktop-and-mobile-responsive",
+      "title": "Create a multi-page Indian restaurant website with the following pages and navigation: Home, Menu, About Us, Gallery, Online Reservation, Contact. Ensure navigation works on desktop and mobile (responsive).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-modern-clean-cohesive-visual-theme-appropriate-for-an-indian-restaurant-warm-inviting-palette-consistent-typography-consistent-spacing-accessible-contrast-do-not-use-a-blue-purple-dominant-palette",
+      "title": "Apply a modern, clean, cohesive visual theme appropriate for an Indian restaurant (warm, inviting palette; consistent typography; consistent spacing; accessible contrast). Do not use a blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-home-page-add-sections-for-1-hero-headline-and-short-description-2-special-dishes-highlighted-items-3-customer-reviews-testimonials-4-opening-hours-and-5-location-summary-with-address-text",
+      "title": "Home page: add sections for (1) hero headline and short description, (2) special dishes (highlighted items), (3) customer reviews/testimonials, (4) opening hours, and (5) location summary with address text.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-menu-page-display-menu-items-grouped-by-category-e-g-starters-main-course-breads-desserts-beverages-each-item-shows-name-description-price-and-optional-vegetarian-non-vegetarian-indicator",
+      "title": "Menu page: display menu items grouped by category (e.g., Starters, Main Course, Breads, Desserts, Beverages). Each item shows name, description, price, and optional vegetarian/non-vegetarian indicator.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-about-us-page-include-restaurant-story-description-content-cuisine-focus-and-a-short-section-highlighting-quality-ingredients-hospitality-ensure-content-is-in-english-and-matches-an-indian-restaurant-context-no-placeholder-lorem-ipsum",
+      "title": "About Us page: include restaurant story/description content, cuisine focus, and a short section highlighting quality/ingredients/hospitality. Ensure content is in English and matches an Indian restaurant context (no placeholder lorem ipsum).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-gallery-page-display-a-grid-of-restaurant-food-images-with-a-click-to-view-larger-preview-modal-lightbox",
+      "title": "Gallery page: display a grid of restaurant/food images with a click-to-view larger preview (modal/lightbox).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-online-reservation-page-implement-a-reservation-form-that-collects-at-minimum-full-name-phone-number-date-time-number-of-guests-and-optional-notes-validate-required-fields-client-side-and-submit-to-backend-for-storage",
+      "title": "Online Reservation page: implement a reservation form that collects at minimum: full name, phone number, date, time, number of guests, and optional notes. Validate required fields client-side and submit to backend for storage.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-contact-page-display-restaurant-details-including-phone-number-8742895627-and-address-15-rani-bazar-jaipur-also-include-opening-hours-and-a-simple-location-section-text-based",
+      "title": "Contact page: display restaurant details including phone number 8742895627 and address \"-15, Rani bazar Jaipur\". Also include opening hours and a simple location section (text-based).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-admin-section-ui-backend-create-a-simple-admin-area-that-allows-an-authenticated-admin-to-add-edit-and-delete-menu-categories-items-including-name-description-price-category-veg-non-veg-flag-and-optional-image-reference-use-internet-identity-authentication-and-restrict-admin-methods-so-only-authorized-principals-can-modify-menu-data",
+      "title": "Admin section (UI + backend): create a simple admin area that allows an authenticated admin to add, edit, and delete menu categories/items (including name, description, price, category, veg/non-veg flag, and optional image reference). Use Internet Identity authentication and restrict admin methods so only authorized principals can modify menu data.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-seed-initial-content-include-a-reasonable-default-set-of-indian-menu-items-at-least-12-items-across-categories-and-at-least-3-special-dishes-and-3-reviews-so-the-site-is-not-empty-on-first-load",
+      "title": "Seed initial content: include a reasonable default set of Indian menu items (at least 12 items across categories) and at least 3 special dishes and 3 reviews so the site is not empty on first load.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-images-as-frontend-assets-and-use-them-across-the-website-home-hero-logo-and-gallery-images-store-them-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend-do-not-route-images-through-the-backend",
+      "title": "Add generated static images as frontend assets and use them across the website (home hero, logo, and gallery images). Store them under frontend/public/assets/generated and reference them directly from the frontend (do not route images through the backend).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create website pages: Home, Menu, About Us, Gallery, Online Reservation, Contact",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add sections for special dishes, customer reviews, opening hours, and location",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement online reservation form for customers",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Display restaurant contact details (phone: 8742895627; address: 15, Rani bazar, Jaipur)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Provide a modern, clean website design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a simple admin section to update menu items",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Backend: create data models and stable storage for (a) menu categories/items and (b) reservations. Provide query/update methods needed by the frontend to list menu items, and create reservations.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Indian restaurant website with reservations and admin-managed menu",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

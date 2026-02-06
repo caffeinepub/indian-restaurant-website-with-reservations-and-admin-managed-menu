@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        /* Warm saffron/terracotta palette for Indian restaurant */
+        --background: 0.98 0.01 45;
+        --foreground: 0.25 0.02 30;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 30;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 30;
+        --primary: 0.62 0.18 45; /* Warm saffron */
+        --primary-foreground: 0.98 0.01 45;
+        --secondary: 0.55 0.15 25; /* Terracotta */
+        --secondary-foreground: 0.98 0.01 45;
+        --muted: 0.94 0.01 45;
+        --muted-foreground: 0.50 0.02 30;
+        --accent: 0.72 0.12 85; /* Warm gold accent */
+        --accent-foreground: 0.25 0.02 30;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.90 0.01 45;
+        --input: 0.90 0.01 45;
+        --ring: 0.62 0.18 45;
+        --chart-1: 0.62 0.18 45;
+        --chart-2: 0.55 0.15 25;
+        --chart-3: 0.72 0.12 85;
+        --chart-4: 0.45 0.12 120;
+        --chart-5: 0.68 0.15 15;
+    }
+
+    .dark {
+        --background: 0.20 0.02 30;
+        --foreground: 0.95 0.01 45;
+        --card: 0.25 0.02 30;
+        --card-foreground: 0.95 0.01 45;
+        --popover: 0.22 0.02 30;
+        --popover-foreground: 0.95 0.01 45;
+        --primary: 0.68 0.18 45;
+        --primary-foreground: 0.20 0.02 30;
+        --secondary: 0.35 0.08 25;
+        --secondary-foreground: 0.95 0.01 45;
+        --muted: 0.30 0.02 30;
+        --muted-foreground: 0.65 0.02 45;
+        --accent: 0.72 0.12 85;
+        --accent-foreground: 0.20 0.02 30;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.01 45;
+        --border: 0.35 0.02 30;
+        --input: 0.35 0.02 30;
+        --ring: 0.68 0.18 45;
+        --chart-1: 0.68 0.18 45;
+        --chart-2: 0.55 0.15 25;
+        --chart-3: 0.72 0.12 85;
+        --chart-4: 0.45 0.12 120;
+        --chart-5: 0.68 0.15 15;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+}
+
+@layer components {
+    .section-container {
+        @apply container mx-auto px-4 sm:px-6 lg:px-8;
+    }
+    
+    .section-padding {
+        @apply py-12 md:py-16 lg:py-20;
+    }
+}

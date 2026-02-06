@@ -1,2 +1,3 @@
-# indian-restaurant-website-with-reservations-and-admin-managed-menu
-Exported from Caffeine project: Indian restaurant website with reservations and admin-managed menu
+## Indian restaurant website with reservations and admin-managed menu
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

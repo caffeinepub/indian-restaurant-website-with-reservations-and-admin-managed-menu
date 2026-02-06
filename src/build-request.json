@@ -1,0 +1,273 @@
+{
+  "kind": "build_request",
+  "title": "Indian restaurant website with reservations and admin-managed menu",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a multi-page Indian restaurant website with the following pages and navigation: Home, Menu, About Us, Gallery, Online Reservation, Contact. Ensure navigation works on desktop and mobile (responsive).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Create a full Indian restaurant website with Home, Menu, About Us, Gallery, Online Reservation Form, and Contact pages."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Top-level navigation links exist for Home, Menu, About Us, Gallery, Online Reservation, and Contact.",
+        "Each route/page renders distinct page content and matches its menu label.",
+        "Layout is responsive (mobile menu or stacked navigation on small screens)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Apply a modern, clean, cohesive visual theme appropriate for an Indian restaurant (warm, inviting palette; consistent typography; consistent spacing; accessible contrast). Do not use a blue/purple-dominant palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Include sections for special dishes, customer reviews, opening hours, location, and a modern clean design."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share a consistent header/footer and typographic system.",
+        "Primary/secondary button styles and section headings are consistent across pages.",
+        "Color palette is warm/neutral and not dominated by blue/purple."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Home page: add sections for (1) hero headline and short description, (2) special dishes (highlighted items), (3) customer reviews/testimonials, (4) opening hours, and (5) location summary with address text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Include sections for special dishes, customer reviews, opening hours, location"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page includes all five specified sections with clear headings.",
+        "Special dishes section shows at least 3 highlighted dishes with name, short description, and price.",
+        "Customer reviews section shows at least 3 reviews with reviewer name and rating display (e.g., stars).",
+        "Opening hours section displays a weekly schedule (at minimum: days + times).",
+        "Location section displays the address exactly as provided (including punctuation/case)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Menu page: display menu items grouped by category (e.g., Starters, Main Course, Breads, Desserts, Beverages). Each item shows name, description, price, and optional vegetarian/non-vegetarian indicator.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Menu... and a simple admin section to update menu items."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Menu items render from backend data (not hardcoded only in frontend).",
+        "Menu supports at least 4 categories and displays items grouped by category.",
+        "Each item displays name, description, and price.",
+        "UI indicates veg/non-veg when present on an item."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "About Us page: include restaurant story/description content, cuisine focus, and a short section highlighting quality/ingredients/hospitality. Ensure content is in English and matches an Indian restaurant context (no placeholder lorem ipsum).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "About Us"
+        ]
+      },
+      "acceptanceCriteria": [
+        "About page has at least 2–3 paragraphs of meaningful English content (no lorem ipsum).",
+        "Page includes at least one highlighted block (e.g., 'Our Story' / 'Our Promise')."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Gallery page: display a grid of restaurant/food images with a click-to-view larger preview (modal/lightbox).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Gallery"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Gallery displays a grid of at least 8 images.",
+        "Clicking an image opens a larger preview and can be closed.",
+        "Gallery is responsive and maintains consistent spacing."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Online Reservation page: implement a reservation form that collects at minimum: full name, phone number, date, time, number of guests, and optional notes. Validate required fields client-side and submit to backend for storage.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Online Reservation Form"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form includes: name, phone, date, time, guests, notes (optional).",
+        "Required fields are validated and show inline error messages before submission.",
+        "Successful submission persists a reservation record in the backend and shows a success confirmation state.",
+        "If backend call fails, user sees a non-technical error message and can retry."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Contact page: display restaurant details including phone number 8742895627 and address \"-15, Rani bazar Jaipur\". Also include opening hours and a simple location section (text-based).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Add restaurant details, phone number 8742895627, address -15, Rani bazar Jaipur"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact page shows phone number exactly: 8742895627.",
+        "Contact page shows address exactly: -15, Rani bazar Jaipur.",
+        "Contact page includes an opening hours block and a location block (text-based)."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Backend: create data models and stable storage for (a) menu categories/items and (b) reservations. Provide query/update methods needed by the frontend to list menu items, and create reservations.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Online Reservation Form... simple admin section to update menu items."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes a query method to fetch menu categories/items for public display.",
+        "Backend exposes an update method to create a reservation entry from the reservation form.",
+        "Data is stored in stable structures so it persists across canister upgrades (use stable variables)."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Admin section (UI + backend): create a simple admin area that allows an authenticated admin to add, edit, and delete menu categories/items (including name, description, price, category, veg/non-veg flag, and optional image reference). Use Internet Identity authentication and restrict admin methods so only authorized principals can modify menu data.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "a simple admin section to update menu items."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin area is accessible from the UI (e.g., in footer or a dedicated route) and is clearly labeled as admin.",
+        "Admin actions include: create, update, delete menu items and manage categories.",
+        "Unauthenticated users cannot access admin editing controls (they may see a prompt to sign in).",
+        "Backend rejects menu-modifying calls from non-admin principals.",
+        "At least one admin principal can be configured (e.g., initial admin set to the first principal who initializes, or a constant allowlist) and is documented in code comments/config."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Seed initial content: include a reasonable default set of Indian menu items (at least 12 items across categories) and at least 3 special dishes and 3 reviews so the site is not empty on first load.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Include sections for special dishes, customer reviews..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Fresh deploy shows populated Menu with at least 12 items across multiple categories.",
+        "Home page special dishes section is populated without admin input.",
+        "Home page reviews section displays at least 3 reviews on first load."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add generated static images as frontend assets and use them across the website (home hero, logo, and gallery images). Store them under frontend/public/assets/generated and reference them directly from the frontend (do not route images through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Gallery... modern clean design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated.",
+        "Home page uses the hero image and logo in the UI.",
+        "Gallery page uses the generated gallery images and loads them as static assets."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo).",
+    "Do not edit files under frontend/src/components/ui or other immutable paths; compose those components instead.",
+    "Authentication must use Internet Identity (no third-party auth providers).",
+    "Use English for all user-facing text."
+  ],
+  "nonGoals": [
+    "Domain purchase/automatic custom domain hosting setup.",
+    "Real-time table availability, live chat, SMS/WhatsApp confirmations, or email integrations.",
+    "Online payments or food ordering checkout flow.",
+    "Map/GPS integration (only text-based location is required)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Restaurant logo mark, minimal modern Indian-inspired iconography (restaurant-logo.dim_512x512.png)",
+      "Warm modern hero banner featuring an Indian dining/food scene with clean negative space (home-hero-banner.dim_1600x900.png)",
+      "Food photography-style image of a signature curry dish (dish-signature-curry.dim_1000x750.png)",
+      "Food photography-style image of biryani (dish-biryani.dim_1000x750.png)",
+      "Food photography-style image of tandoori platter (dish-tandoori-platter.dim_1000x750.png)",
+      "Food photography-style image of dessert (dish-dessert.dim_1000x750.png)",
+      "Restaurant interior photo-style image (gallery-01.dim_1200x800.png)",
+      "Close-up plated Indian dish photo-style image (gallery-02.dim_1200x800.png)",
+      "Indian thali photo-style image (gallery-03.dim_1200x800.png)",
+      "Chef/kitchen action photo-style image (gallery-04.dim_1200x800.png)",
+      "Dining table ambiance photo-style image (gallery-05.dim_1200x800.png)",
+      "Spices/ingredients flatlay photo-style image (gallery-06.dim_1200x800.png)",
+      "Bread/naan oven scene photo-style image (gallery-07.dim_1200x800.png)",
+      "Beverage/lassi photo-style image (gallery-08.dim_1200x800.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Use English for user-facing website content."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [
+      "Restaurant contact details to display: phone 8742895627; address \"-15, Rani bazar Jaipur\"."
+    ],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
